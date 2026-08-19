@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="title" content="BaryCache - Memory-Efficient Training-Free Acceleration of Diffusion Transformers">
+  <meta name="description" content="BaryCache accelerates Diffusion Transformers with stable stepwise barycentric extrapolation, achieving up to 3.30x speedup with low cache memory.">
+  <meta name="keywords" content="BaryCache, Diffusion Transformer, DiT, training-free acceleration, caching, barycentric extrapolation, image generation, video generation">
+  <meta name="author" content="Chengjie Lu, Tianchi Deng, Zhengqi He, Zhijian Gao, Huisi Wu, Xueliang Li">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Shenzhen University">
+  <meta property="og:title" content="BaryCache: Memory-Efficient Training-Free Acceleration of Diffusion Transformers">
+  <meta property="og:description" content="Stable stepwise feature forecasting for up to 3.30x faster DiT sampling with a compact memory footprint.">
+  <meta property="og:url" content="https://kiramei.github.io/BaryCache/">
+  <meta property="og:image" content="https://kiramei.github.io/BaryCache/static/images/social_preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BaryCache">
+  <meta name="twitter:description" content="Memory-efficient, training-free acceleration of Diffusion Transformers.">
+  <meta name="twitter:image" content="https://kiramei.github.io/BaryCache/static/images/social_preview.png">
+  <meta name="citation_title" content="Memory-Efficient Training-Free Acceleration of Diffusion Transformers with BaryCache">
+  <meta name="citation_author" content="Lu, Chengjie"><meta name="citation_author" content="Deng, Tianchi"><meta name="citation_author" content="He, Zhengqi"><meta name="citation_author" content="Gao, Zhijian"><meta name="citation_author" content="Wu, Huisi"><meta name="citation_author" content="Li, Xueliang">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="theme-color" content="#2563eb">
+  <title>BaryCache | Academic Project Page</title>
+  <link rel="icon" type="image/png" href="static/images/barycache_logo.png">
+  <link rel="apple-touch-icon" href="static/images/barycache_logo.png">
+  <!-- CSS stack from the requested Academic Project Page Template -->
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="static/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/barycache.css">
+  <!-- JavaScript stack from the requested Academic Project Page Template -->
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/bulma-slider.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+  <script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};</script>
+  <script defer src="static/js/mathjax-tex-svg.js"></script>
+  <script defer src="static/js/barycache.js"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Memory-Efficient Training-Free Acceleration of Diffusion Transformers with BaryCache","description":"A training-free DiT acceleration method using stable barycentric extrapolation of stepwise features.","author":[{"@type":"Person","name":"Chengjie Lu"},{"@type":"Person","name":"Tianchi Deng"},{"@type":"Person","name":"Zhengqi He"},{"@type":"Person","name":"Zhijian Gao"},{"@type":"Person","name":"Huisi Wu"},{"@type":"Person","name":"Xueliang Li"}],"datePublished":"2026","url":"https://kiramei.github.io/BaryCache/","image":"https://kiramei.github.io/BaryCache/static/images/social_preview.png","isAccessibleForFree":true}</script>
+</head>
+<body>
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+  <main id="main-content">
+    <!-- Template hero -->
+    <section class="hero"><div class="hero-body"><div class="container is-max-desktop"><div class="columns is-centered"><div class="column has-text-centered">
+      <img class="project-logo" src="static/images/barycache_logo.png" alt="BaryCache logo">
+      <h1 class="title is-1 publication-title">Memory-Efficient Training-Free Acceleration of Diffusion Transformers with <span class="accent-title">BaryCache</span></h1>
+      <div class="is-size-5 publication-authors"><span class="author-block">Chengjie Lu<sup>1</sup>,</span> <span class="author-block">Tianchi Deng<sup>3</sup>,</span> <span class="author-block">Zhengqi He<sup>1</sup>,</span> <span class="author-block">Zhijian Gao<sup>1</sup>,</span> <span class="author-block">Huisi Wu<sup>2</sup>,</span> <span class="author-block">Xueliang Li<sup>3,*</sup></span></div>
+      <div class="is-size-6 publication-authors affiliation-list"><span class="author-block"><sup>1</sup> College of Electronics and Information Engineering (CEIE), Shenzhen University</span><span class="author-block"><sup>2</sup> College of Computer Science and Software Engineering (CSSE), Shenzhen University</span><span class="author-block"><sup>3</sup> School of Artificial Intelligence, Shenzhen University</span><span class="eql-cntrb"><small><sup>*</sup> Corresponding author</small></span></div>
+      <div class="column has-text-centered"><div class="publication-links">
+        <span class="link-block"><a href="#" onclick="return false" aria-disabled="true" title="arXiv link coming soon" class="external-link button is-normal is-rounded is-dark paper-placeholder"><span class="icon"><i class="ai ai-arxiv"></i></span><span>Paper</span></a></span>
+        <span class="link-block"><a href="https://github.com/Kiramei/BaryCache" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark"><span class="icon"><i class="fab fa-github"></i></span><span>Code</span></a></span>
+        <span class="link-block"><a href="#results" class="external-link button is-normal is-rounded is-dark"><span class="icon"><i class="fas fa-chart-line"></i></span><span>Results</span></a></span>
+      </div></div>
+    </div></div></div></div></section>
+
+    <!-- Template teaser -->
+    <section class="hero teaser"><div class="container is-max-desktop"><div class="hero-body"><img class="teaser-image previewable" src="static/images/overview.png" alt="Overview of BaryCache" data-caption="Overview of BaryCache"><h2 class="subtitle has-text-centered">BaryCache alternates full forward passes with lightweight cache forwards, using a stable Barycentric Extrapolator to predict stepwise features from a short cache history.</h2></div></div></section>
+
+    <!-- Template abstract -->
+    <section class="section hero is-light"><div class="container is-max-desktop"><div class="columns is-centered has-text-centered"><div class="column is-four-fifths"><h2 class="title is-3">Abstract</h2><div class="content has-text-justified"><p>Diffusion Transformers achieve high-fidelity image and video generation, but their iterative sampling remains expensive because every denoising step requires large matrix operations. Existing cache-based acceleration reduces redundant computation yet increases the VRAM footprint by storing intermediate states, directly constraining inference batch size. We propose a training-free acceleration method that performs stepwise forecasting for DiT sampling using a Barycentric Extrapolator. Its numerically stable formulation alleviates oscillatory artifacts analogous to the Runge phenomenon. Across class-to-image, text-to-image, and text-to-video generation, BaryCache delivers a favorable quality-memory trade-off and up to <strong>3.30x end-to-end speedup</strong>.</p></div></div></div></div></section>
+
+    <!-- Template section/columns components, filled with the complete method -->
+    <section class="section" id="method"><div class="container is-max-desktop"><h2 class="title is-3 has-text-centered">How It Works</h2>
+      <div class="columns is-centered is-vcentered method-overview"><div class="column is-4"><img class="previewable" src="static/images/cache_comparison.png" alt="Stepwise and blockwise cache targets" data-caption="Stepwise and blockwise cache targets"></div><div class="column is-8 content has-text-justified"><p>Let a DiT contain \(L\) layers and \(Q\) modules per layer. While blockwise caching may retain as many as \(\mathcal{N}\!\times\!Q\) intermediate tensors over \(\mathcal{N}\) cached steps, BaryCache stores only the final stepwise feature \(\mathbf{x}'_t\), making its cache memory independent of network depth. An equal-spaced scheduler alternates full forwards that refresh the cache with lightweight cache forwards that substitute a stable barycentric forecast, without finetuning the pretrained model or introducing an auxiliary network.</p></div></div>
+      <div class="columns is-multiline method-steps">
+        <div class="column is-full"><article class="box"><span class="step-index">01 · Cache context</span><h3 class="title is-5">Short sliding history</h3><p>For history length \(H\), retain the most recent full-step anchors:</p><div class="formula">\[\mathcal{H}_t=\{\mathbf{x}'_{s_1},\ldots,\mathbf{x}'_{s_H}\},\qquad s_j&lt;t.\]</div><p>The main setting uses \(H=2\), minimizing retained activation memory.</p></article></div>
+        <div class="column is-full"><article class="box"><span class="step-index">02 · Diff Key</span><h3 class="title is-5">Feature-independent lookup</h3><p>Build a key only from timestep distances and the history decay:</p><div class="formula">\[k_t=((t-s_1),\ldots,(t-s_H);\delta_H).\]</div><p>The same schedule reuses precomputed weights across samples.</p></article></div>
+        <div class="column is-full"><article class="box"><span class="step-index">03 · Stable weights</span><h3 class="title is-5">Clip and decay</h3><p>With endpoint coefficients \(c_1=c_H=\tfrac{1}{2}\) and interior coefficients \(c_j=1\), compute and clip the barycentric terms before applying history decay:</p><div class="formula">\[u_j=\frac{c_j(-1)^j}{t-s_j},\qquad \tilde{u}_j=\operatorname{clip}(u_j,-C,C).\]</div><div class="formula formula-small">\[\alpha_j=\frac{\operatorname{sgn}(\tilde{u}_j)(|\tilde{u}_j|+\eta)^{\delta_H}}{\sum_m\operatorname{sgn}(\tilde{u}_m)(|\tilde{u}_m|+\eta)^{\delta_H}}.\]</div></article></div>
+        <div class="column is-full"><article class="box"><span class="step-index">04 · Cache forward</span><h3 class="title is-5">Forecast and refresh</h3><p>Blend the barycentric forecast with the newest anchor:</p><div class="formula">\[\hat{\mathbf{x}}_t=(1-\lambda)\sum_{j=1}^{H}\alpha_j\mathbf{x}'_{s_j}+\lambda\mathbf{x}'_{s_H}.\]</div><p>Periodic full steps refresh \(\mathcal{H}_t\) and bound accumulated error.</p></article></div>
+      </div>
+      <figure class="analysis-figure"><div class="split-analysis"><div class="analysis-panel panel-top"><img class="previewable" src="static/images/method_analysis.png" alt="BaryCache stepwise versus BaryCache blockwise MSE" data-caption="BaryCache stepwise versus BaryCache blockwise"></div><div class="analysis-panel panel-bottom"><img class="previewable" src="static/images/method_analysis.png" alt="BaryCache stepwise versus TaylorSeer blockwise MSE" data-caption="BaryCache stepwise versus TaylorSeer blockwise"></div></div><figcaption class="subtitle has-text-centered">Stepwise prediction is more accurate than blockwise variants, while BaryCache remains stable at later forecast steps.</figcaption></figure>
+    </div></section>
+
+    <section class="section hero is-light" id="results"><div class="container is-max-desktop"><h2 class="title is-3 has-text-centered">Quantitative Results</h2><div class="columns is-centered result-cards">
+      <div class="column"><article class="box"><p class="result-task">Text-to-image · PixArt-Sigma</p><strong class="speedup">3.30×</strong><p>at \(\mathcal{N}=6,\ H=2\)</p><hr><p>VRAM <b>3.941 GB</b></p><p>ImageReward <b>0.6654</b></p><p>CLIPScore <b>31.10</b></p></article></div>
+      <div class="column"><article class="box"><p class="result-task">Text-to-video · HunyuanVideo</p><strong class="speedup">3.02×</strong><p>at \(\mathcal{N}=7,\ H=2\)</p><hr><p>VRAM <b>30.805 GB</b></p><p>SSIM <b>0.6496</b></p><p>LPIPS <b>0.3463</b></p></article></div>
+      <div class="column"><article class="box"><p class="result-task">Class-to-image · DiT-XL/2</p><strong class="speedup">2.18×</strong><p>at \(\mathcal{N}=6,\ H=2\)</p><hr><p>VRAM <b>5.529 GB</b></p><p>FID <b>3.91</b></p><p>sFID <b>5.27</b></p></article></div>
+    </div></div></section>
+
+    <!-- Full quantitative tables from the paper -->
+    <section class="section quantitative-tables" id="tables">
+      <div class="container is-widescreen">
+        <h2 class="title is-3 has-text-centered">Full Quantitative Comparisons</h2>
+        <p class="subtitle has-text-centered">Complete main-table results reported in the paper. Scroll horizontally on smaller screens.</p>
+
+        <details class="paper-table-block" open>
+          <summary>Text-to-Image · PixArt-Sigma</summary>
+          <p class="table-caption">Quantitative comparison in text-to-image generation. \(\lambda=0.0\).</p>
+          <div class="table-container"><table class="table is-hoverable is-fullwidth research-table">
+            <thead><tr><th>Method</th><th>FLOPs (T) ↓</th><th>Latency (s) ↓</th><th>Speedup ↑</th><th>VRAM (GB) ↓</th><th>ImageReward ↑</th><th>CLIPScore ↑</th></tr></thead>
+            <tbody>
+              <tr><td>Vanilla: DDIM-50</td><td>450.52</td><td>4.974</td><td>1.00×</td><td>3.363</td><td>0.7258</td><td>30.89</td></tr>
+              <tr class="group-start"><td>Vanilla: DDIM-15</td><td>135.16</td><td>1.484</td><td>3.35×</td><td>3.363</td><td>0.6577</td><td>31.04</td></tr>
+              <tr><td>Δ-DiT \((\mathcal{N}=4)\)</td><td>126.15</td><td>1.651</td><td>3.01×</td><td>3.651</td><td>0.6246</td><td>30.96</td></tr>
+              <tr><td>FORA \((\mathcal{N}=4)\)†</td><td>125.68</td><td>3.939</td><td>1.26×</td><td>19.255</td><td>0.5024</td><td>30.79</td></tr>
+              <tr><td>ToCa \((\mathcal{N}=4)\)†</td><td>189.08</td><td>4.957</td><td>1.00×</td><td>27.453</td><td>0.5679</td><td>30.83</td></tr>
+              <tr><td>DuCa \((\mathcal{N}=4)\)†</td><td>167.94</td><td>4.593</td><td>1.08×</td><td>27.453</td><td>0.5842</td><td>30.87</td></tr>
+              <tr><td>TeaCache (l=0.65)</td><td>126.15</td><td>1.666</td><td>2.98×</td><td>3.795</td><td>0.6478</td><td>31.01</td></tr>
+              <tr><td>TaylorSeer \((\mathcal{N}=4)\)†</td><td>125.88</td><td>2.874</td><td>1.73×</td><td>21.913</td><td>0.7097</td><td>30.98</td></tr>
+              <tr class="bary-row"><td>BaryCache \((\mathcal{N}=4,\ H=2)\)</td><td>126.15</td><td>1.863</td><td>2.67×</td><td>3.941</td><td><strong>0.7220</strong></td><td><strong>30.92</strong></td></tr>
+              <tr class="group-start"><td>Vanilla: DDIM-11</td><td>99.11</td><td>1.088</td><td>4.57×</td><td>3.363</td><td>0.5844</td><td>31.05</td></tr>
+              <tr><td>Δ-DiT \((\mathcal{N}=6)\)</td><td>90.10</td><td>1.284</td><td>3.87×</td><td>3.651</td><td>0.5001</td><td>31.04</td></tr>
+              <tr><td>FORA \((\mathcal{N}=6)\)†</td><td>89.77</td><td>3.153</td><td>1.58×</td><td>19.255</td><td>0.2723</td><td>30.54</td></tr>
+              <tr><td>ToCa \((\mathcal{N}=6)\)†</td><td>160.21</td><td>4.240</td><td>1.17×</td><td>27.453</td><td>0.3541</td><td>30.92</td></tr>
+              <tr><td>DuCa \((\mathcal{N}=6)\)†</td><td>132.04</td><td>3.522</td><td>1.41×</td><td>27.453</td><td>0.3642</td><td>30.86</td></tr>
+              <tr><td>TeaCache (l=0.95)</td><td>99.11</td><td>1.394</td><td>3.57×</td><td>3.795</td><td>0.6130</td><td>31.17</td></tr>
+              <tr><td>TaylorSeer \((\mathcal{N}=6)\)†</td><td>89.98</td><td>2.772</td><td>1.79×</td><td>21.913</td><td>0.6537</td><td>30.92</td></tr>
+              <tr class="bary-row"><td>BaryCache \((\mathcal{N}=6,\ H=2)\)</td><td>90.10</td><td>1.505</td><td><strong>3.30×</strong></td><td>3.941</td><td><strong>0.6654</strong></td><td><strong>31.10</strong></td></tr>
+            </tbody>
+          </table></div>
+        </details>
+
+        <details class="paper-table-block" open>
+          <summary>Text-to-Video · HunyuanVideo</summary>
+          <p class="table-caption">Quantitative comparison in text-to-video generation.</p>
+          <div class="table-container"><table class="table is-hoverable is-fullwidth research-table">
+            <thead><tr><th>Method</th><th>Latency (s) ↓</th><th>Speedup ↑</th><th>VRAM (GB) ↓</th><th>PSNR ↑</th><th>SSIM ↑</th><th>LPIPS ↓</th></tr></thead>
+            <tbody>
+              <tr><td>Vanilla: Euler-50</td><td>231.240</td><td>1.000×</td><td>31.171</td><td>–</td><td>–</td><td>–</td></tr>
+              <tr class="group-start"><td>ToCa \((\mathcal{N}=5)\)†</td><td>87.580</td><td>2.640×</td><td>46.521</td><td>15.8272</td><td>0.5069</td><td>0.4437</td></tr>
+              <tr><td>DuCa \((\mathcal{N}=5)\)†</td><td>82.480</td><td>2.804×</td><td>46.515</td><td>15.8641</td><td>0.5122</td><td>0.4440</td></tr>
+              <tr><td>TeaCache (l=0.4)</td><td>84.920</td><td>2.723×</td><td>31.525</td><td>17.0962</td><td>0.5984</td><td>0.3775</td></tr>
+              <tr><td>TaylorSeer \((\mathcal{N}=5)\)†</td><td>87.940</td><td>2.630×</td><td>60.771</td><td>15.9317</td><td>0.5214</td><td>0.4269</td></tr>
+              <tr class="bary-row"><td>BaryCache \((\mathcal{N}=5,\ H=2)\)</td><td>84.650</td><td>2.732×</td><td><strong>30.805</strong></td><td><strong>19.0159</strong></td><td><strong>0.6829</strong></td><td><strong>0.2992</strong></td></tr>
+              <tr class="group-start"><td>ToCa \((\mathcal{N}=7)\)†</td><td>81.290</td><td>2.845×</td><td>46.521</td><td>15.3712</td><td>0.5045</td><td>0.4962</td></tr>
+              <tr><td>DuCa \((\mathcal{N}=7)\)†</td><td>75.570</td><td>3.060×</td><td>46.515</td><td>15.3682</td><td>0.5058</td><td>0.4980</td></tr>
+              <tr><td>TeaCache (l=0.5)</td><td>77.060</td><td>3.001×</td><td>31.525</td><td>17.3969</td><td>0.5921</td><td>0.3806</td></tr>
+              <tr><td>TaylorSeer \((\mathcal{N}=7)\)†</td><td>75.190</td><td>3.075×</td><td>60.771</td><td>15.4674</td><td>0.5104</td><td>0.4716</td></tr>
+              <tr class="bary-row"><td>BaryCache \((\mathcal{N}=7,\ H=2)\)</td><td>76.640</td><td>3.017×</td><td><strong>30.805</strong></td><td><strong>17.9988</strong></td><td><strong>0.6496</strong></td><td><strong>0.3463</strong></td></tr>
+            </tbody>
+          </table></div>
+        </details>
+
+        <details class="paper-table-block" open>
+          <summary>Class-to-Image · DiT-XL/2</summary>
+          <p class="table-caption">Quantitative comparison in class-to-image generation.</p>
+          <div class="table-container"><table class="table is-hoverable is-fullwidth research-table">
+            <thead><tr><th>Method</th><th>FLOPs (T) ↓</th><th>Latency (s) ↓</th><th>Speedup ↑</th><th>VRAM (GB) ↓</th><th>FID ↓</th><th>sFID ↓</th><th>IS ↑</th></tr></thead>
+            <tbody>
+              <tr><td>Vanilla: DDIM-50</td><td>23.74</td><td>0.349</td><td>1.00×</td><td>6.037</td><td>2.27</td><td>4.34</td><td>239.61</td></tr>
+              <tr class="group-start"><td>Vanilla: DDIM-25</td><td>11.87</td><td>0.234</td><td>1.49×</td><td>6.037</td><td>2.91</td><td>4.54</td><td>229.97</td></tr>
+              <tr><td>Δ-DiT \((\mathcal{N}=3)\)</td><td>8.07</td><td>0.182</td><td>1.91×</td><td>6.037</td><td>3.58</td><td>4.66</td><td>217.19</td></tr>
+              <tr><td>FORA \((\mathcal{N}=5)\)†</td><td>5.24</td><td>0.190</td><td>1.84×</td><td>6.467</td><td>5.81</td><td>9.74</td><td>200.64</td></tr>
+              <tr><td>ToCa \((\mathcal{N}=5)\)†</td><td>7.72</td><td>0.303</td><td>1.15×</td><td>6.569</td><td>4.41</td><td>6.21</td><td>213.46</td></tr>
+              <tr><td>DuCa \((\mathcal{N}=5)\)†</td><td>6.04</td><td>0.232</td><td>1.50×</td><td>6.569</td><td>4.81</td><td>6.75</td><td>207.04</td></tr>
+              <tr><td>TeaCache (l=0.2)</td><td>8.55</td><td>0.197</td><td>1.77×</td><td>6.057</td><td>3.38</td><td>4.73</td><td>218.06</td></tr>
+              <tr><td>TaylorSeer \((\mathcal{N}=5)\)†</td><td>5.24</td><td>0.215</td><td>1.62×</td><td>8.483</td><td><strong>2.73</strong></td><td>5.44</td><td><strong>233.35</strong></td></tr>
+              <tr class="bary-row"><td>BaryCache \((\mathcal{N}=5,\ H=2)\)</td><td>5.24</td><td>0.181</td><td>1.93×</td><td><strong>5.529</strong></td><td>3.27</td><td><strong>4.61</strong></td><td>219.67</td></tr>
+              <tr class="group-start"><td>Vanilla: DDIM-20</td><td>5.70</td><td>0.194</td><td>1.80×</td><td>6.037</td><td>3.49</td><td>4.88</td><td>224.42</td></tr>
+              <tr><td>Δ-DiT \((\mathcal{N}=4)\)</td><td>7.75</td><td>0.151</td><td>2.31×</td><td>6.037</td><td>5.02</td><td>5.33</td><td>201.71</td></tr>
+              <tr><td>FORA \((\mathcal{N}=6)\)†</td><td>4.77</td><td>0.164</td><td>2.12×</td><td>6.467</td><td>9.20</td><td>14.97</td><td>171.28</td></tr>
+              <tr><td>ToCa \((\mathcal{N}=6)\)†</td><td>7.25</td><td>0.297</td><td>1.17×</td><td>6.569</td><td>5.77</td><td>7.54</td><td>200.86</td></tr>
+              <tr><td>DuCa \((\mathcal{N}=6)\)†</td><td>5.85</td><td>0.202</td><td>1.73×</td><td>6.569</td><td>5.90</td><td>7.58</td><td>198.84</td></tr>
+              <tr><td>TeaCache (l=0.4)</td><td>5.22</td><td>0.140</td><td>2.49×</td><td>6.057</td><td>6.71</td><td>6.62</td><td>185.89</td></tr>
+              <tr><td>TaylorSeer \((\mathcal{N}=6)\)†</td><td>4.77</td><td>0.202</td><td>1.73×</td><td>8.483</td><td><strong>3.17</strong></td><td>6.47</td><td><strong>225.77</strong></td></tr>
+              <tr class="bary-row"><td>BaryCache \((\mathcal{N}=6,\ H=2)\)</td><td>4.77</td><td>0.160</td><td>2.18×</td><td><strong>5.529</strong></td><td>3.91</td><td><strong>5.27</strong></td><td>209.77</td></tr>
+            </tbody>
+          </table></div>
+        </details>
+        <p class="table-note">† Blockwise caching improves quality but incurs additional VRAM overhead, which can limit batch size.</p>
+      </div>
+    </section>
+
+    <!-- Template image carousel: six animated slides, all 48 images -->
+    <section class="hero is-small is-light"><div class="hero-body"><div class="container is-widescreen"><h2 class="title is-3 has-text-centered">Text-to-Image Comparisons</h2><p class="subtitle has-text-centered">Swipe or use the carousel controls to browse all six prompts.</p><div id="image-carousel" class="carousel results-carousel comparison-carousel">
+      <div class="item comparison-slide"><h3>Prompt 01</h3><p class="demo-prompt">Rainbow coloured penguin.</p><div class="media-grid image-grid">
+        <button data-label="Vanilla"><img src="showcase/T2I/1/origin.png" alt="Prompt 1 Vanilla" loading="lazy"><b>Vanilla</b></button><button data-label="Delta-DiT"><img src="showcase/T2I/1/delta.png" alt="Prompt 1 Delta-DiT" loading="lazy"><b>Delta-DiT</b></button><button data-label="FORA"><img src="showcase/T2I/1/fora.png" alt="Prompt 1 FORA" loading="lazy"><b>FORA</b></button><button data-label="ToCa"><img src="showcase/T2I/1/toca.png" alt="Prompt 1 ToCa" loading="lazy"><b>ToCa</b></button><button data-label="DuCa"><img src="showcase/T2I/1/duca.png" alt="Prompt 1 DuCa" loading="lazy"><b>DuCa</b></button><button data-label="TeaCache"><img src="showcase/T2I/1/teacache.png" alt="Prompt 1 TeaCache" loading="lazy"><b>TeaCache</b></button><button data-label="TaylorSeer"><img src="showcase/T2I/1/taylor.png" alt="Prompt 1 TaylorSeer" loading="lazy"><b>TaylorSeer</b></button><button class="bary-media" data-label="BaryCache"><img src="showcase/T2I/1/bary.png" alt="Prompt 1 BaryCache" loading="lazy"><b>BaryCache</b></button>
+      </div></div>
+      <div class="item comparison-slide"><h3>Prompt 02</h3><p class="demo-prompt">A black colored car.</p><div class="media-grid image-grid">
+        <button data-label="Vanilla"><img src="showcase/T2I/2/origin.png" alt="Prompt 2 Vanilla" loading="lazy"><b>Vanilla</b></button><button data-label="Delta-DiT"><img src="showcase/T2I/2/delta.png" alt="Prompt 2 Delta-DiT" loading="lazy"><b>Delta-DiT</b></button><button data-label="FORA"><img src="showcase/T2I/2/fora.png" alt="Prompt 2 FORA" loading="lazy"><b>FORA</b></button><button data-label="ToCa"><img src="showcase/T2I/2/toca.png" alt="Prompt 2 ToCa" loading="lazy"><b>ToCa</b></button><button data-label="DuCa"><img src="showcase/T2I/2/duca.png" alt="Prompt 2 DuCa" loading="lazy"><b>DuCa</b></button><button data-label="TeaCache"><img src="showcase/T2I/2/teacache.png" alt="Prompt 2 TeaCache" loading="lazy"><b>TeaCache</b></button><button data-label="TaylorSeer"><img src="showcase/T2I/2/taylor.png" alt="Prompt 2 TaylorSeer" loading="lazy"><b>TaylorSeer</b></button><button class="bary-media" data-label="BaryCache"><img src="showcase/T2I/2/bary.png" alt="Prompt 2 BaryCache" loading="lazy"><b>BaryCache</b></button>
+      </div></div>
+      <div class="item comparison-slide"><h3>Prompt 03</h3><p class="demo-prompt">A yellow colored giraffe.</p><div class="media-grid image-grid">
+        <button data-label="Vanilla"><img src="showcase/T2I/3/origin.png" alt="Prompt 3 Vanilla" loading="lazy"><b>Vanilla</b></button><button data-label="Delta-DiT"><img src="showcase/T2I/3/delta.png" alt="Prompt 3 Delta-DiT" loading="lazy"><b>Delta-DiT</b></button><button data-label="FORA"><img src="showcase/T2I/3/fora.png" alt="Prompt 3 FORA" loading="lazy"><b>FORA</b></button><button data-label="ToCa"><img src="showcase/T2I/3/toca.png" alt="Prompt 3 ToCa" loading="lazy"><b>ToCa</b></button><button data-label="DuCa"><img src="showcase/T2I/3/duca.png" alt="Prompt 3 DuCa" loading="lazy"><b>DuCa</b></button><button data-label="TeaCache"><img src="showcase/T2I/3/teacache.png" alt="Prompt 3 TeaCache" loading="lazy"><b>TeaCache</b></button><button data-label="TaylorSeer"><img src="showcase/T2I/3/taylor.png" alt="Prompt 3 TaylorSeer" loading="lazy"><b>TaylorSeer</b></button><button class="bary-media" data-label="BaryCache"><img src="showcase/T2I/3/bary.png" alt="Prompt 3 BaryCache" loading="lazy"><b>BaryCache</b></button>
+      </div></div>
+      <div class="item comparison-slide"><h3>Prompt 04</h3><p class="demo-prompt">One cat and one dog sitting on the grass.</p><div class="media-grid image-grid">
+        <button data-label="Vanilla"><img src="showcase/T2I/4/origin.png" alt="Prompt 4 Vanilla" loading="lazy"><b>Vanilla</b></button><button data-label="Delta-DiT"><img src="showcase/T2I/4/delta.png" alt="Prompt 4 Delta-DiT" loading="lazy"><b>Delta-DiT</b></button><button data-label="FORA"><img src="showcase/T2I/4/fora.png" alt="Prompt 4 FORA" loading="lazy"><b>FORA</b></button><button data-label="ToCa"><img src="showcase/T2I/4/toca.png" alt="Prompt 4 ToCa" loading="lazy"><b>ToCa</b></button><button data-label="DuCa"><img src="showcase/T2I/4/duca.png" alt="Prompt 4 DuCa" loading="lazy"><b>DuCa</b></button><button data-label="TeaCache"><img src="showcase/T2I/4/teacache.png" alt="Prompt 4 TeaCache" loading="lazy"><b>TeaCache</b></button><button data-label="TaylorSeer"><img src="showcase/T2I/4/taylor.png" alt="Prompt 4 TaylorSeer" loading="lazy"><b>TaylorSeer</b></button><button class="bary-media" data-label="BaryCache"><img src="showcase/T2I/4/bary.png" alt="Prompt 4 BaryCache" loading="lazy"><b>BaryCache</b></button>
+      </div></div>
+      <div class="item comparison-slide"><h3>Prompt 05</h3><p class="demo-prompt">A yellow and black bus cruising through the rainforest.</p><div class="media-grid image-grid">
+        <button data-label="Vanilla"><img src="showcase/T2I/5/origin.png" alt="Prompt 5 Vanilla" loading="lazy"><b>Vanilla</b></button><button data-label="Delta-DiT"><img src="showcase/T2I/5/delta.png" alt="Prompt 5 Delta-DiT" loading="lazy"><b>Delta-DiT</b></button><button data-label="FORA"><img src="showcase/T2I/5/fora.png" alt="Prompt 5 FORA" loading="lazy"><b>FORA</b></button><button data-label="ToCa"><img src="showcase/T2I/5/toca.png" alt="Prompt 5 ToCa" loading="lazy"><b>ToCa</b></button><button data-label="DuCa"><img src="showcase/T2I/5/duca.png" alt="Prompt 5 DuCa" loading="lazy"><b>DuCa</b></button><button data-label="TeaCache"><img src="showcase/T2I/5/teacache.png" alt="Prompt 5 TeaCache" loading="lazy"><b>TeaCache</b></button><button data-label="TaylorSeer"><img src="showcase/T2I/5/taylor.png" alt="Prompt 5 TaylorSeer" loading="lazy"><b>TaylorSeer</b></button><button class="bary-media" data-label="BaryCache"><img src="showcase/T2I/5/bary.png" alt="Prompt 5 BaryCache" loading="lazy"><b>BaryCache</b></button>
+      </div></div>
+      <div class="item comparison-slide"><h3>Prompt 06</h3><p class="demo-prompt">A sheep to the right of a wine glass.</p><div class="media-grid image-grid">
+        <button data-label="Vanilla"><img src="showcase/T2I/6/origin.png" alt="Prompt 6 Vanilla" loading="lazy"><b>Vanilla</b></button><button data-label="Delta-DiT"><img src="showcase/T2I/6/delta.png" alt="Prompt 6 Delta-DiT" loading="lazy"><b>Delta-DiT</b></button><button data-label="FORA"><img src="showcase/T2I/6/fora.png" alt="Prompt 6 FORA" loading="lazy"><b>FORA</b></button><button data-label="ToCa"><img src="showcase/T2I/6/toca.png" alt="Prompt 6 ToCa" loading="lazy"><b>ToCa</b></button><button data-label="DuCa"><img src="showcase/T2I/6/duca.png" alt="Prompt 6 DuCa" loading="lazy"><b>DuCa</b></button><button data-label="TeaCache"><img src="showcase/T2I/6/teacache.png" alt="Prompt 6 TeaCache" loading="lazy"><b>TeaCache</b></button><button data-label="TaylorSeer"><img src="showcase/T2I/6/taylor.png" alt="Prompt 6 TaylorSeer" loading="lazy"><b>TaylorSeer</b></button><button class="bary-media" data-label="BaryCache"><img src="showcase/T2I/6/bary.png" alt="Prompt 6 BaryCache" loading="lazy"><b>BaryCache</b></button>
+      </div></div>
+    </div></div></div></section>
+
+    <!-- Template video carousel: three animated slides, all 18 videos -->
+    <section class="hero is-small"><div class="hero-body"><div class="container is-widescreen"><h2 class="title is-3 has-text-centered">Text-to-Video Comparisons</h2><p class="subtitle has-text-centered">All videos autoplay silently and loop. Click a video to enlarge it in this page.</p><div id="video-carousel" class="carousel results-carousel comparison-carousel">
+      <div class="item comparison-slide"><h3>Prompt 01</h3><p class="demo-prompt">A cat is walking on the grass.</p><div class="media-grid video-grid">
+        <button data-label="Vanilla"><video autoplay muted loop playsinline preload="metadata"><source src="showcase/T2V/1/origin.mp4" type="video/mp4"></video><b>Vanilla</b></button><button data-label="ToCa"><video autoplay muted loop playsinline preload="metadata"><source src="showcase/T2V/1/toca.mp4" type="video/mp4"></video><b>ToCa</b></button><button data-label="DuCa"><video autoplay muted loop playsinline preload="metadata"><source src="showcase/T2V/1/duca.mp4" type="video/mp4"></video><b>DuCa</b></button><button data-label="TeaCache"><video autoplay muted loop playsinline preload="metadata"><source src="showcase/T2V/1/teacache.mp4" type="video/mp4"></video><b>TeaCache</b></button><button data-label="TaylorSeer"><video autoplay muted loop playsinline preload="metadata"><source src="showcase/T2V/1/taylor.mp4" type="video/mp4"></video><b>TaylorSeer</b></button><button class="bary-media" data-label="BaryCache"><video autoplay muted loop playsinline preload="metadata"><source src="showcase/T2V/1/bary.mp4" type="video/mp4"></video><b>BaryCache</b></button>
+      </div></div>
+      <div class="item comparison-slide"><h3>Prompt 02</h3><p class="demo-prompt">castle</p><div class="media-grid video-grid">
+        <button data-label="Vanilla"><video autoplay muted loop playsinline preload="metadata"><source src="showcase/T2V/2/origin.mp4" type="video/mp4"></video><b>Vanilla</b></button><button data-label="ToCa"><video autoplay muted loop playsinline preload="metadata"><source src="showcase/T2V/2/toca.mp4" type="video/mp4"></video><b>ToCa</b></button><button data-label="DuCa"><video autoplay muted loop playsinline preload="metadata"><source src="showcase/T2V/2/duca.mp4" type="video/mp4"></video><b>DuCa</b></button><button data-label="TeaCache"><video autoplay muted loop playsinline preload="metadata"><source src="showcase/T2V/2/teacache.mp4" type="video/mp4"></video><b>TeaCache</b></button><button data-label="TaylorSeer"><video autoplay muted loop playsinline preload="metadata"><source src="showcase/T2V/2/taylor.mp4" type="video/mp4"></video><b>TaylorSeer</b></button><button class="bary-media" data-label="BaryCache"><video autoplay muted loop playsinline preload="metadata"><source src="showcase/T2V/2/bary.mp4" type="video/mp4"></video><b>BaryCache</b></button>
+      </div></div>
+      <div class="item comparison-slide"><h3>Prompt 03</h3><p class="demo-prompt">a book and a clock</p><div class="media-grid video-grid">
+        <button data-label="Vanilla"><video autoplay muted loop playsinline preload="metadata"><source src="showcase/T2V/3/origin.mp4" type="video/mp4"></video><b>Vanilla</b></button><button data-label="ToCa"><video autoplay muted loop playsinline preload="metadata"><source src="showcase/T2V/3/toca.mp4" type="video/mp4"></video><b>ToCa</b></button><button data-label="DuCa"><video autoplay muted loop playsinline preload="metadata"><source src="showcase/T2V/3/duca.mp4" type="video/mp4"></video><b>DuCa</b></button><button data-label="TeaCache"><video autoplay muted loop playsinline preload="metadata"><source src="showcase/T2V/3/teacache.mp4" type="video/mp4"></video><b>TeaCache</b></button><button data-label="TaylorSeer"><video autoplay muted loop playsinline preload="metadata"><source src="showcase/T2V/3/taylor.mp4" type="video/mp4"></video><b>TaylorSeer</b></button><button class="bary-media" data-label="BaryCache"><video autoplay muted loop playsinline preload="metadata"><source src="showcase/T2V/3/bary.mp4" type="video/mp4"></video><b>BaryCache</b></button>
+      </div></div>
+    </div></div></div></section>
+
+    <section class="section hero is-light" id="acknowledgement">
+      <div class="container is-max-desktop"><div class="columns is-centered"><div class="column is-four-fifths content has-text-justified">
+        <h2 class="title is-3 has-text-centered">Acknowledgement</h2>
+        <p>This work was supported by the Guangdong Provincial Natural Science Foundation - General Program (Grant No. 2025A1515011568); the Project of Shenzhen Science and Technology Innovation Bureau - General Project (Grant No. JCYJ20250604182252068); the Guangdong Provincial Department of Education Key Areas Special Project for University Scientific Research (Grant No. 2024ZDZX1015); and the Internal Fund of National Engineering Laboratory for Big Data System Computing Technology (Grant No. SZU-BDSC-IF2024-05).</p>
+      </div></div></div>
+    </section>
+
+    <!-- Template BibTeX component -->
+    <section class="section" id="BibTeX"><div class="container is-max-desktop content"><div class="bibtex-header"><h2 class="title">BibTeX</h2><button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard"><i class="fas fa-copy"></i><span class="copy-text">Copy</span></button></div><pre id="bibtex-code"><code>@inproceedings{lu2026barycache,
+  title  = {Memory-Efficient Training-Free Acceleration of Diffusion Transformers with BaryCache},
+  author = {Lu, Chengjie and Deng, Tianchi and He, Zhengqi and Gao, Zhijian and Wu, Huisi and Li, Xueliang},
+  year   = {2026}
+}</code></pre></div></section>
+  </main>
+
+  <div class="media-lightbox" id="media-lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Media preview"><button class="lightbox-close" type="button" aria-label="Close preview"><i class="fas fa-times"></i></button><div class="lightbox-stage"></div><p class="lightbox-caption"></p></div>
+  <footer class="footer"><div class="container"><div class="columns is-centered"><div class="column is-8"><div class="content has-text-centered"><img class="footer-logo" src="static/images/barycache_logo.png" alt="BaryCache logo"><p><strong>BaryCache</strong><br>Memory-efficient training-free acceleration for Diffusion Transformers.</p></div></div></div></div></footer>
+</body>
+</html>
