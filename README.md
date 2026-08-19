@@ -2,9 +2,9 @@
   <img src="docs/static/images/barycache_logo.png" width="180" alt="BaryCache logo">
 </p>
 
-<p align="center" style="font-size: 32px; font-weight: bold">
+<h1 align="center">
 Memory-Efficient Training-Free Acceleration of Diffusion Transformers with Barycentric Extrapolation
-</p>
+</h1>
 
 <div id="badges" align="center">
 
