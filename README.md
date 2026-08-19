@@ -176,6 +176,9 @@ Please refer to the paper for hardware, baselines, metrics, and complete experim
 
 This repository builds on the official implementations of [DiT](https://github.com/facebookresearch/DiT), [PixArt-Sigma](https://github.com/PixArt-alpha/PixArt-sigma), and [HunyuanVideo](https://github.com/Tencent-Hunyuan/HunyuanVideo). We also thank the authors of the caching and forecasting baselines evaluated in the paper.
 
+This work was supported by the Guangdong Provincial Natural Science Foundation -- General Program (Grant No. 2025A1515011568); the Project of Shenzhen Science and Technology Innovation Bureau -- General Project (Grant No. JCYJ20250604182252068); the Guangdong Provincial Department of Education Key Areas Special Project for University Scientific Research (Grant No. 2024ZDZX1015); and the Internal Fund of National Engineering Laboratory for Big Data System Computing Technology (Grant No. SZU-BDSC-IF2024-05).
+
+
 ## License
 
 The code is opensourced under [MIT](LICENSE) License.
